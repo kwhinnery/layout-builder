@@ -1,0 +1,12 @@
+.container {
+  position: absolute;
+  top: 0;
+  left: 20%;
+  right: 20%;
+  bottom: 0;
+  background-color: #efefef;
+}
+
+.selected {
+  box-shadow: 0 0 8px #3266CB;
+}

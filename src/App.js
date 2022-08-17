@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import { ThemeProvider, CssBaseline } from "@mui/material";
+import Hierarchy from "./Hierarchy";
+import Preview from './Preview';
+import Inspector from './Inspector';
+import { theme } from "./theme";
+import { UI_STATE } from './default_ui';
 
 function App() {
+  const [uiState, setUiState] = useState(UI_STATE);
+  const [selectedElement, setSelectedElement] = useState(null);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Hierarchy
+        uiState={uiState} setUiState={setUiState} 
+        selectedElement={selectedElement} 
+        setSelectedElement={setSelectedElement}
+      />
+      <Preview
+        uiState={uiState} setUiState={setUiState} 
+        selectedElement={selectedElement} 
+        setSelectedElement={setSelectedElement}
+      />
+      <Inspector 
+        uiState={uiState} setUiState={setUiState} 
+        selectedElement={selectedElement} 
+        setSelectedElement={setSelectedElement}
+      />
+    </ThemeProvider>
   );
 }
 
