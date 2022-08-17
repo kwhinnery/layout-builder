@@ -1,70 +1,41 @@
-# Getting Started with Create React App
+# Layout Builder Prototype
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This repository contains a sample app (based on [create-react-app](https://create-react-app.dev/)) to demonstrate an approach to visually building UI layouts by managing a component hierarchy. This is presented as an alternative to manually positioning and sizing components on a canvas using a mouse - a common approach in many UI builder tools. Developers typically reason about rich front end applications as a hierarchy of custom components (in the DOM or another model), where parents control the layout of their children. This UI builds on that existing base of knowledge and mental model.
 
-## Available Scripts
+## Live Demo
 
-In the project directory, you can run:
+You can interact with this prototype here *TODO - add GitHub Pages Link*
 
-### `npm start`
+## How It Works
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+This UI has three panes, from left to right:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+* A explorer view, showing the component hierarchy
+* A preview of the actual, working UI
+* An "inspector" view, used to edit selected components
 
-### `npm test`
+**All adding, moving, selecting, and deleting of components is done using the explorer view** on the left. The center preview pane always shows the working version of the UI and layout, and cannot be directly manipulated (except to interact with the app). The inspector view allows you to edit the properties of a selected component.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Advantages
 
-### `npm run build`
+Managing a user interface by manipulating a component hierarchy has a few benefits over manual positioning and sizing.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* Moving groups of components or individual components is easier when you are just changing their parent, rather than trying to clear out new space within a manually-constructed layout.
+* Dragging and dropping nodes on a tree structure is a UI pattern most computer users already understand (like a filesystem).
+* Parents can define layout strategies, so as new children are added, they can more easily snap into place using the strategy defined by the parent. 
+* Managing a component hierarchy opens up the possibility of using more powerful layout options, like CSS grid or Flexbox.
+* Mouse movement and selection in a manual positioning UI can be clunky - you might not click on and move the right parent, resizing a component might mess up your layout, etc. It is difficult to create consistent mouse behavior. Inserting a new node into a hierarchy is a predictable experience.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Disadvantages
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Some disadvantages of this approach might be:
 
-### `npm run eject`
+* Most WYSIWIG editors support free drag-and-drop and resizing with the mouse - the absence of this feature may surprise some users. 
+* Similarly, most WYSIWIG editors support a flow like "click on a thing directly in the layout, and edit its properties in an inspector UI". Though there are ways to provide this experience potentially in this model too, like having the center preview pane be able to switch between a "user mode" and maybe a "selection mode", like the Unity editor has different mouse modes.
+* Complex layouts can sometimes result in large component trees which could be tricky to navigate (but this becomes true eventually for any sufficiently complex app)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Future Explorations
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+It could be possible to support drag-and-drop additions of components to the hierarchy via the center preview pane - but rather than dropping the components at an X/Y position, you are just determining where in the component hierarchy to slot in the new UI control.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+I think the most important idea in this prototype is that UI structure is naturally hierarchical, and eschewing manual sizing and X/Y positioning in favor of layouts for parents and children creates a much more consistent experience.
