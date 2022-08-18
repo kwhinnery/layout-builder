@@ -4,7 +4,7 @@ This repository contains a sample app (based on [create-react-app](https://creat
 
 ## Live Demo
 
-You can interact with this prototype here *TODO - add GitHub Pages Link*
+[You can interact with this prototype here](https://kwhinnery.github.io/layout-builder/).
 
 ## How It Works
 
@@ -37,5 +37,7 @@ Some disadvantages of this approach might be:
 ## Future Explorations
 
 It could be possible to support drag-and-drop additions of components to the hierarchy via the center preview pane - but rather than dropping the components at an X/Y position, you are just determining where in the component hierarchy to slot in the new UI control.
+
+Another minor innovation could be to use an iOS-style navigation controller-like interface, where the component hierarchy sits on top of the "inspector" view, and you can drill down from the hierarchy view to a component editor view. This could reduce the total screen real estate needed for the UI, and simplify the overall layout to two panels - a "preview" and and "editing" panel (combines both hierarchy and inspector).
 
 I think the most important idea in this prototype is that UI structure is naturally hierarchical, and eschewing manual sizing and X/Y positioning in favor of layouts for parents and children creates a much more consistent experience.
