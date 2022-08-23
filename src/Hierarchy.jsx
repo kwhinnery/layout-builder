@@ -15,7 +15,7 @@ function Hierarchy({
   uiState, 
   setUiState, 
   selectedElement, 
-  setSelectedElement 
+  setSelectedElement,
 }) {
 
   const treeData = uiStateToTreeData(uiState);
@@ -32,7 +32,12 @@ function Hierarchy({
       data: {
         tagName: 'div',
         tagProps: {
-          style: { margin: '5px 0' }
+          style: { 
+            padding: '10px',
+            backgroundColor: '#fff',
+            border: '1px solid #ddd',
+            borderRadius: '4px' 
+          }
         },
         innerHtml: 'I am a div, but I can be anything you want!',
         children: []
@@ -47,9 +52,6 @@ function Hierarchy({
 
     treeData.push(newNodeData);
     setUiState(treeDataToUiState(treeData));
-    setTimeout(() => {
-      setSelectedElement(newNodeData);
-    },1);
   };
 
   const deleteById = (contextNode) => {

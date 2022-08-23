@@ -1,12 +1,16 @@
 .container {
   position: absolute;
   top: 0;
-  left: 20%;
-  right: 20%;
+  left: 25%;
+  right: 0;
   bottom: 0;
   background-color: #efefef;
 }
 
 .selected {
-  box-shadow: 0 0 8px #3266CB;
+  box-shadow: 0 0 20px #3266CB;
+}
+
+.hovered {
+  box-shadow: 0 0 20px #777;
 }

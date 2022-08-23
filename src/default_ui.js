@@ -9,8 +9,13 @@ export const UI_STATE = [
         style: {
           display: 'flex',
           flexDirection: 'column',
+          gap: '10px',
           height: '100%',
           width: '100%',
+          maxWidth: '1200px',
+          margin: '0 auto',
+          padding: '10px 0',
+          overflow: 'hidden'
         },
       },
       children: [
@@ -26,7 +31,6 @@ export const UI_STATE = [
                 display: 'flex',
                 alignItems: 'center',
                 height: '80px',
-                margin: '10px 10px 0 10px',
                 gap: '10px',
                 padding: '10px',
                 backgroundColor: '#fff',
@@ -84,8 +88,7 @@ export const UI_STATE = [
                 display: 'flex',
                 flexGrow: '1',
                 gap: '10px',
-                margin: '10px',
-                overflow: 'scroll',
+                overflow: 'hidden',
               }
             },
             children: [

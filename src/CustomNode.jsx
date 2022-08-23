@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Typography from "@mui/material/Typography";
 import IconButton from "@mui/material/IconButton";
-import { ArrowRight, Delete, Add } from "@mui/icons-material";
+import { ArrowRight, Delete, Add, Edit } from "@mui/icons-material";
 import { TypeIcon } from "./TypeIcon";
 import styles from "./CustomNode.module.css";
 
@@ -23,9 +23,13 @@ export const CustomNode = (props) => {
         props.isSelected ? styles.isSelected : ""
       }`}
       style={{ paddingInlineStart: indent }}
-      onClick={handleSelect}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
+      onClick={(event) => {
+        if (event.detail === 2) {
+          handleSelect();
+        }
+      }}
     >
       <div
         className={`${styles.expandIconWrapper} ${
@@ -47,7 +51,15 @@ export const CustomNode = (props) => {
       {hover && (
         <div style={{ float: 'right' }}>
           <div className={styles.actionButton}>
-            <IconButton size="small" onClick={() => props.onNew(props.node)}>
+            <IconButton size="small" onClick={handleSelect}>
+              <Edit fontSize="small" />
+            </IconButton>
+          </div>
+          <div className={styles.actionButton}>
+            <IconButton size="small" onClick={(e) => {
+                e.stopPropagation();
+                props.onNew(props.node);
+            }}>
               <Add fontSize="small" />
             </IconButton>
           </div>

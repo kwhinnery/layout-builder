@@ -23,11 +23,14 @@ function App() {
         selectedElement={selectedElement} 
         setSelectedElement={setSelectedElement}
       />
-      <Inspector 
-        uiState={uiState} setUiState={setUiState} 
-        selectedElement={selectedElement} 
-        setSelectedElement={setSelectedElement}
-      />
+      {
+        (!selectedElement) ? '' :
+          <Inspector 
+          uiState={uiState} setUiState={setUiState} 
+          selectedElement={selectedElement} 
+          setSelectedElement={setSelectedElement}
+        />
+      }
     </ThemeProvider>
   );
 }

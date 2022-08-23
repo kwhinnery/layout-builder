@@ -71,6 +71,9 @@ function ElementEditor({ uiState, setUiState, selectedElement, setSelectedElemen
         type="text"
         value={formValues.text}
         onChange={handleInputChange}
+        InputLabelProps={{
+          shrink: true,
+        }}
       />
       <TextField
         id="tagName-input"
@@ -79,6 +82,9 @@ function ElementEditor({ uiState, setUiState, selectedElement, setSelectedElemen
         type="text"
         value={formValues._tagName}
         onChange={handleInputChange}
+        InputLabelProps={{
+          shrink: true,
+        }}
       />
 
       <InputLabel htmlFor="input-with-icon-adornment" style={{

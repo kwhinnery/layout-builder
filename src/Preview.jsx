@@ -16,8 +16,11 @@ function createChildren(nodes, selectedElement) {
       children = createChildren(children, selectedElement);
     }
 
-    const cname = (selectedElement && selectedElement.id === node.id) ?
-      styles.selected : '';
+    let cname = '';
+
+    if (selectedElement && selectedElement.id === node.id) {
+      cname = styles.selected;
+    }
 
     components.push(
       // Some tags can't have children/innerHtml
