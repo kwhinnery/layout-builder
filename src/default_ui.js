@@ -14,8 +14,7 @@ export const UI_STATE = [
           width: '100%',
           maxWidth: '1200px',
           margin: '0 auto',
-          padding: '10px 0',
-          overflow: 'hidden'
+          padding: '10px 0'
         },
       },
       children: [
@@ -87,8 +86,7 @@ export const UI_STATE = [
               style: {
                 display: 'flex',
                 flexGrow: '1',
-                gap: '10px',
-                overflow: 'hidden',
+                gap: '10px'
               }
             },
             children: [

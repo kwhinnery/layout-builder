@@ -8,9 +8,15 @@
 }
 
 .selected {
-  box-shadow: 0 0 20px #3266CB;
+  animation: pulsate 1s linear infinite;
 }
 
 .hovered {
-  box-shadow: 0 0 20px #777;
+  box-shadow: 0 0 10px #777;
+}
+
+@keyframes pulsate {
+  from { box-shadow: 0 0 8px #3266CB; }
+  50% { box-shadow: 0 0 4px #3266CB; }
+  to { box-shadow: 0 0 8px #3266CB; }
 }
